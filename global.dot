@@ -1,0 +1,706 @@
+// Civilization collaps graph
+// three types of connection: week, normal and strong
+// Weak connection - 1 score, normal - 2, and strong 4
+
+digraph Global {
+    // Water vapor is a greenhouse gas 
+    water_vapor -> temp_increase [ style=bold ]
+
+    // 298 times more stronger as greenhouse gas than CO2
+    nitrous_oxide -> temp_increase [ style=bold ]
+    // one of CFCs
+    nitrous_oxide -> ozone [ style=bold ]
+
+    // Farming as one of main source of nitrous oxide
+    nitrogen_cycle -> nitrous_oxide [ style=bold ]
+    // Increases PM and ozone, respiratory diseases, cancer
+    nitrogen_cycle -> health_reduce [ style=solid ]
+    // Because of eutrophication
+    nitrogen_cycle -> marine_die [ style=solid ]
+    // Increases soil acidification
+    nitrogen_cycle -> ocean_acid [ style=dashed ]
+    // N saturation can result in nutrient imbalances (e.g., loss of calcium due to nitrate leaching) and possible forest decline
+    nitrogen_cycle -> deforestation [ style=dashed ]
+
+    // Phospherous amount is heavily debated, some say it'll last for 50 years other 200 with peak in 2030
+    phosphorus_peak -> food_reduce [ style=dashed ]
+    // Because of eutrophication
+    phosphorus_peak -> marine_die [ style=solid ]
+
+    // Clearing forest to clean land for houses, infrastructure, farming, industry, roads
+    overpopulation -> deforestation [ style=bold ]
+    // Raising population takes more land from native species
+    overpopulation -> species_extinction [ style=bold ]
+    // More population consumes more water
+    overpopulation -> water_reduce [ style=solid ]
+    // Peoples consentration to close leads to psychological problems
+    overpopulation -> social_instab [ style=dashed ]
+    // More people consume more sea food
+    overpopulation -> overfishing [ style=solid ]
+    // More people need more electronics
+    overpopulation -> industrial_elements [ style=bold ]
+    // More people consume more oil and gas via transport, heating, electricity generation
+    overpopulation -> oil_depletion [ style=bold ]
+    overpopulation -> gas_depletion [ style=bold ]
+    // Road salt and irrigation causes salinization
+    overpopulation -> salinization [ style=solid ]
+    // More people need telecommunication which increases satellite fleet and increases chance of collisions.
+    overpopulation -> space_debris [ style=bold ]
+    // More dense population increases pandemic chance and burden on healthcare
+    overpopulation -> pandemic [ style=dashed ]
+    // More population increases chance for bacteria to become resistant to certain antibiotics. 
+    overpopulation -> bacteria_resist [ style=solid ]
+    // More people need more electricity and one of major sources is nuclear power.
+    overpopulation -> nuclear_waste [ style=bold ]
+    // Building, chemicals, transportation etc increase overall air pollution.
+    overpopulation -> air_pollution [ style=bold ]
+    // More people causes more water pollution, via farming or directly
+    overpopulation -> water_pollution [ style=bold ]
+    // More people needs more plastics
+    overpopulation -> plastics_pollution [ style=bold ]
+    // More people is a burden for education and general population increase happens in poor counties
+    overpopulation -> human_stupid [ style=dashed ]
+    // More people need more transportation, energy, goods and concrete
+    overpopulation -> co2_rise [ style=bold ]
+    // Farming is causing increase of methane in atmosphere
+    overpopulation -> methane_raise [ style=bold ]
+    // Since industrial revolution we increased global reactive nitrogen (Nr) by 50%
+    overpopulation -> nitrogen_cycle [ style=bold ]
+    overpopulation -> phosphorus_peak [ style=solid ]
+    // Mining, factories, manufacturing etc causes land pollution with chemicals
+    overpopulation -> land_pollution [ style=bold ]
+    // Rising population make farmers to use bad farming methods to increase crop output
+    overpopulation -> bad_farm [ style=dashed ]
+    // Wastes are generated through various sources like domestic, industrial, agricultural, commercial, municipal etc. This waste is not get recycled and end up in landfills.
+    overpopulation -> general_waste [ style=bold ]
+
+    // CO2 -> temperature increase via global warming effect if CO2 will be rising as now we will have +4 degrees by the end of 21st century
+    co2_rise -> temp_increase [ style=bold ]
+    // More than 800ppm lead to poisoning for humans
+    co2_rise -> co2_poison [ style=bold ]
+    // CO2 in atmosphere leads to water acidity increase because it reacts with water and converts into carbonic acid
+    co2_rise -> ocean_acid [ style=bold ]
+    // More than 1200ppm leads to rain clouds disappearing which will heat the planet on +12C. Human extinction scenario.
+    co2_rise -> clouds_disappear [ style=bold ]
+
+    // Temperature increase can trigger methane deposits unleash, from permafrost on land or from the bottom of the ocean Global temperature can increase to +4 degrees only from methane
+    methane_bomb -> temp_increase [ style=bold ]
+
+    // Certain human processes like farming causes methane to increase in atmosphere, it also increases temperature as addition to CO2 increase
+    methane_raise -> temp_increase [ style=bold ]
+
+    // Increasing temperature reduce ice covering
+    temp_increase -> ice_reduce [ style=bold ]
+    // More energy in atmosphere leads to more sever hurricanes
+    temp_increase -> hurricanes [ style=bold ]
+    // Higher temperature traps more water in atmosphere and available water evaporates
+    temp_increase -> water_reduce [ style=solid ]
+    // Temperature raising shifting habitats of indigenous trees
+    temp_increase -> deforestation [ style=dashed ]
+    // Higher temperature means more droughts in summer
+    temp_increase -> droughts [ style=solid ]
+    // Parasites spreading to the regions where they couldn't survive because of high temperature
+    temp_increase -> parasites [ style=dashed ]
+    // Species migrating because of warmer climate and kill native species 
+    temp_increase -> invas_species [ style=dashed ]
+    // Increasing temperature can unleash methane in permafrost in tundra and deep inder the ocean, which can increase temperature up to +4 degrees as an addition to CO2 temp increase
+    temp_increase -> methane_bomb [ style=solid ]
+    // Water temperature increase bleaches corals and make them die
+    temp_increase -> coral_die [ style=solid ]
+    // Temperature raise is increasing water evaporation
+    temp_increase -> water_vapor [ style=solid ]
+
+    // Less ice means more sun energy will be absorbed by dark water of ground.
+    ice_reduce -> temp_increase [ style=solid ]
+    // Ice shield melting means more water in global ocean. CO2 level now in 415ppm, last time such concentration was 3 million years ago, temperature was 2-3 degrees higher and
+    // global ocean level 10-20m higher
+    ice_reduce -> ocean_level [ style=bold ]
+    // Ice shields are vital part of water supply for many people, many rivers and streams starts from ice shield in mountains.
+    ice_reduce -> water_reduce [ style=solid ]
+    // With ice shields and ice caps melting salt consentration in global ocean is changing. This means that global ocean conveyor belt is slowing down.
+    ice_reduce -> ocean_conv_stop [ style=solid ]
+
+    // Oceanic conveyor is a vital part of distributing nutrients and oxygen in global ocean. Without it many species will due
+    ocean_conv_stop -> marine_die [ style=dashed ]
+
+    // Ocean acidity increase can damage to shells of many species which are base of food chain in ocean. They can adapt but only till some point.
+    ocean_acid -> crust_die [ style=dashed ]
+    // Ocean acidity increase also damage to corals by reducing their skeletal density
+    ocean_acid -> coral_die [ style=dashed ]
+    
+    // Big hurricanes paralize life
+    hurricanes -> social_instab [ style=dashed ]
+    // Hurricanes cause soil soil_depletion by flooding the ground
+    hurricanes -> soil_depletion [ style=dashed ]
+    // Floods contaminate water and can cause waterborne diseases to spread
+    hurricanes -> pandemic [ style=dashed ]
+    // High wind destroys trees
+    hurricanes -> deforestation [ style=dashed ]
+    // Flooding, high wind destroys infrastructure
+    hurricanes -> infrac_destr [ style=solid ]
+    // Flood kills crops on the field
+    hurricanes -> food_reduce [ style=dashed ]
+    // Flooding cause water pollution (rubbish, chemicals)
+    hurricanes -> water_pollution [ style=dashed ]
+    // Flooding polluting water with plastic
+    hurricanes -> plastics_pollution [ style=dashed ]
+    // Flooding an area increase chance land will become a wetland 
+    hurricanes -> wetland_spread [ style=dashed ]
+
+    // Droughts causing many animals to die 
+    droughts -> species_extinction [ style=solid ]
+    // Dryness makes terrain a desert
+    droughts -> desertification [ style=dashed ]
+    // Dehydrated trees and grass are easier to catch fire
+    droughts -> wildfires [ style=bold ]
+    // Dry soil looses its fertility and wind damages dry soil
+    droughts -> soil_depletion [ style=dashed ]
+    // Droughts are very bad for crop ouput
+    droughts -> food_reduce [ style=bold ]
+    // Droughts are causing people to migrate
+    droughts -> people_migration [ style=solid ]
+
+    // Wildfires are destroying houses and whole villages
+    wildfires -> infrac_destr [ style=solid ]
+    // Wildfires are a terrible experiance for local people and even for all other via news
+    wildfires -> social_instab [ style=dashed ]
+    // Wildfires are destroying farms and crops
+    wildfires -> food_reduce [ style=dashed ]
+    // Wildfires are weakening the soil, causing soil_depletion and reducing water-retention capacity
+    wildfires -> soil_depletion [ style=dashed ]
+    // Wildfire causes deforestation
+    wildfires -> deforestation [ style=bold ]
+    // By destroying infrastucture wildfires causing air pollution
+    wildfires -> air_pollution [ style=dashed ]
+    // Burning trees are direct increase of CO2
+    wildfires -> co2_rise [ style=dashed ]
+    // Wildfires are killing animals and destroying thier habitats
+    wildfires -> species_extinction [ style=dashed ]
+
+    // Ocean raise means less land can be used for farms
+    ocean_level -> food_reduce [ style=dashed ]
+    // Water raise can flood forests
+    ocean_level -> deforestation [ style=dashed ]
+    // Water raise can flood cities and decrease amount of land
+    ocean_level -> habitable_area_decrease [ style=bold ]
+    // Flooding water will pollute ocean
+    ocean_level -> water_pollution [ style=dashed ]
+    // Flooding water will pollute ocean with plastics
+    ocean_level -> plastics_pollution [ style=dashed ]
+    // Flooding increase chance for land to become a wetland
+    ocean_level -> wetland_spread [ style=dashed ]
+    // Because some land will become flooded permenantly lakes and rivers previously clean will turn salty
+    ocean_level -> water_reduce [ style=dashed ]
+
+    // More than 800 ppm CO2 will cause poisoning of humans and animals as well (varies)
+    co2_poison -> health_reduce [ style=bold ]
+    // CO2 also is poisoness for animals
+    co2_poison -> species_extinction [ style=solid ]
+
+    // More than 1200 ppm will cause rain clouds to disappear, it will increase temperature to +8 degrees (and add to +4 from CO2 and +4 from methane)
+    clouds_disappear -> temp_increase [ style=bold ]
+    // Disappearing of rain clouds means much less water will be on land
+    clouds_disappear -> water_reduce [ style=solid ]
+
+    // crustaceans are a base of many food chains, thier dying out means mass extinction
+    crust_die -> marine_die [ style=bold ]
+
+    // Less marine animals means less fish for people
+    marine_die -> food_reduce [ style=bold ]
+    // Extinction of marine animals will cause extionction of land animals as well
+    marine_die -> species_extinction [ style=solid ]
+    // Marine animals extinction will cause crustaceans to die out too
+    marine_die -> crust_die [ style=dashed ]
+    // Mass extinction will be bad for humans mood and hope for the future
+    marine_die -> social_instab [ style=dashed ]
+
+    // Species extionction will cause food to go down quite a lot, like dying out of polleners
+    species_extinction -> food_reduce [ style=solid ]
+    // On place of big animals (esp preditors) usually come thier food and ususally this are some pests and parasites
+    species_extinction -> parasites [ style=dashed ]
+    // Animals are a vital subjct of research like searching of new drugs
+    species_extinction -> technology_slow [ style=dashed ]
+    // Mass extinction will be bad for humans mood and hope for the future
+    species_extinction -> social_instab [ style=dashed ]
+
+    // Corals are essencial for many marine animals, without them a lot will extinct and cause a cascade extinctions
+    coral_die -> marine_die [ style=solid ]
+
+    // Destructions of roads and farms
+    infrac_destr -> food_reduce [ style=dashed ]
+    // To restore destroyed infrastucture we need to spend rare metals and oil (transport, energy)
+    infrac_destr -> industrial_elements [ style=dashed ]
+    infrac_destr -> oil_depletion [ style=dashed ]
+    // Any big destruction is causing social instability like marauders, crimes etc
+    infrac_destr -> social_instab [ style=solid ]
+    // Destruction of factories and companies will cause progress and productivity to go down
+    infrac_destr -> technology_slow [ style=dashed ]
+    // Destruction of factories and communications
+    infrac_destr -> industry_slow [ style=dashed ]
+    // Fires from destruction emits CO2
+    infrac_destr -> co2_rise [ style=dashed ]
+    // Fires from destruction emits air pollution
+    infrac_destr -> air_pollution [ style=dashed ]
+
+    // Trees are holding soil with roots
+    deforestation -> soil_depletion [ style=bold ]
+    // Trees are natural air filters
+    deforestation -> air_pollution [ style=solid ]
+    // Less trees means less CO2 can be absorbed from the air
+    deforestation -> co2_rise [ style=solid ]
+    // Forests are habitats for many species
+    deforestation -> species_extinction [ style=solid ]
+    // Trees are cooling the planet by absorbing sun's energy
+    deforestation -> temp_increase [ style=dashed ]
+
+    // Pure water is a vital resource for humans, losing it causes high instability in society
+    water_reduce -> social_instab [ style=bold ]
+    // Pure water is essential for many industries
+    water_reduce -> industry_slow [ style=solid ]
+    // Pure water is essential for farming
+    water_reduce -> food_reduce [ style=bold ]
+    // Reduction of water in soil increases chance for land to turn into a desert
+    water_reduce -> desertification [ style=solid ]
+    // General water land reduction is causing trees and grass to dehydrate and they easier can catch fire
+    water_reduce -> wildfires [ style=solid ]
+    // Less water supply means less trees will grow
+    water_reduce -> deforestation [ style=solid ]
+    // Less water will cause many animals to die from thirst
+    water_reduce -> species_extinction [ style=solid ]
+    // If territory cannot provide enough water it will cause people to mass migrate
+    water_reduce -> people_migration [ style=solid ]
+    // When main sources of pure water become short people turn to other sources
+    water_reduce -> groundwater [ style=solid ]
+    // Energy will be spent to desalinize salt water
+    water_reduce -> oil_depletion [ style=solid ]
+
+    // Ground water depletion leads to water shortages
+    groundwater -> water_reduce [ style=solid ]
+
+    // Desert spreading leads to extinction of many animals
+    desertification -> species_extinction [ style=solid ]
+    // Deserts cannot be used for food production
+    desertification -> food_reduce [ style=bold ]
+    // Deserts are planless land, plants absorb sun energy
+    desertification -> temp_increase [ style=dashed ]
+
+    // Bacterias produce methane in swamps
+    wetland_spread -> methane_raise [ style=dashed ]
+    // People cannot build in wetlands
+    wetland_spread -> habitable_area_decrease [ style=solid ]
+    // When land like forest turns a wetland many native species will die
+    wetland_spread -> species_extinction [ style=solid ]
+    // Wetlands helping to spread certain diseases
+    wetland_spread -> pandemic [ style=dashed ]
+
+    // Soil destruction causes less food 
+    soil_depletion -> food_reduce [ style=bold ]
+    // Soil destruction leads land to become desert
+    soil_depletion -> desertification [ style=solid ]
+    // Erosion can cause destruction of infrastructure in some areas
+    soil_depletion -> infrac_destr [ style=dashed ]
+    // Erosion and ground stability loss causes some land to become to risky to build at
+    soil_depletion -> habitable_area_decrease [ style=dashed ]
+
+    // Parasites spread causing crops to die, also parasites invasions like locust outbreak
+    parasites -> food_reduce [ style=solid ]
+    // Parasites are killing trees and make them more vulnerable to wildfires
+    parasites -> deforestation [ style=solid ]
+    // Like locust outbreaks
+    parasites -> social_instab [ style=dashed ]
+    // Parasites spreading make farmers to user more toxic chemicals
+    parasites -> bad_farm
+
+    // Ivasive species may destroy crops (rabbits, mice etc)
+    invas_species -> food_reduce [ style=solid ]
+    // Ivasive species may kill native species or be poisoness for native species
+    invas_species -> species_extinction [ style=bold ]
+
+    // Low food make people to migrate
+    food_reduce -> people_migration [ style=solid ]
+    // Malnutrition undermines humans health
+    food_reduce -> health_reduce [ style=solid ]
+    // Low food supplies creates social friction
+    food_reduce -> social_instab [ style=bold ]
+    // Low food supply causes some people to starve because of social unjust
+    food_reduce -> famine [ style=solid ]
+
+    // Famine can cause people to go to war or civil war
+    famine -> war [ style=solid ]
+    // Famine creates high social instability
+    famine -> social_instab [ style=solid ]
+    // Famine causes even more migration
+    famine -> people_migration [ style=solid ]
+
+    // If people don't have place to live they build buildings more compact with reduced space, higher, closer, all this have negative psychological effect
+    habitable_area_decrease -> social_instab [ style=dashed ]
+    // If people don't have place to live due to flooding etc it can make them to leave
+    habitable_area_decrease -> people_migration [ style=dashed ]
+
+    // Social instability can cause civil war
+    social_instab -> war [ style=solid ]
+    // During hard time people tend to take and stock up as much wealth as they can increasing social unjust
+    social_instab -> social_unjust [ style=solid ]
+    // During hard times people lose faith in current system and can turn to extreme idiologies
+    social_instab -> extremism [ style=solid ]
+    // During bad times people think more about thier survival than about science
+    social_instab -> technology_slow [ style=solid ]
+
+    // War in a very hard experiance for people
+    war -> social_instab [ style=bold ]
+    // Violence cause disabilities to people
+    war -> health_reduce [ style=bold ]
+    // During war people think more about their own survival
+    war -> technology_slow [ style=bold ]
+    // War turn factories into weapon production
+    war -> industry_slow [ style=solid ]
+    // War machines need a lot of oil
+    war -> oil_depletion [ style=solid ]
+    // Weapon production takes a lot of rare resources
+    war -> industrial_elements [ style=bold ]
+    // During battles infrastructure gets destroyed
+    war -> infrac_destr [ style=bold ]
+    // War destroyes stocks of food, farms, takes people from crop growing
+    war -> food_reduce [ style=solid ]
+    // War can lead to use of nuclear weapon
+    war -> nuclear_weapon [ style=dashed ]
+    // War leads to poverty
+    war -> social_unjust [ style=solid ]
+    // During war people don't educate
+    war -> human_stupid [ style=solid ]
+
+    // spreading or local usage of nuclear weapon can lead to war
+    nuclear_weapon -> war [ style=dashed ]
+    // Nuclear weapon usage leads to radiation contamination
+    nuclear_weapon -> rad_pollution [ style=solid ]
+
+    // Radioation causes health problems
+    rad_pollution -> health_reduce [ style=solid ]
+    // People cannot live or radioactive areas
+    rad_pollution -> habitable_area_decrease [ style=solid ]
+    // High radioactive contamination kills animals
+    rad_pollution -> species_extinction [ style=dashed ]
+
+    // Mass migration causes social instability in countries where migrants come
+    people_migration -> social_instab [ style=solid ]
+    // Migrating people usually loose everything
+    people_migration -> social_unjust [ style=solid ]
+
+    // Overfishing kill aquatic life
+    overfishing -> marine_die  [ style=bold ]
+    // Overfishing reduces fishing in the future
+    overfishing -> food_reduce [ style=solid ]
+    // Fish is also main source of food for many land animals
+    overfishing -> species_extinction [ style=solid ]
+    // Fishing is a main source of money for many coast regions, overfishing leads to their bunkrupcy
+    overfishing -> social_unjust [ style=dashed ]
+
+    // Depleation of rare metals will cause to shut down industies
+    industrial_elements -> industry_slow [ style=bold ]
+    
+    // Medical supply shortages will cause healthcare to downgrade
+    industry_slow -> health_reduce [ style=solid ]
+    // Shortages of goods and equipment will cause development slowdown
+    industry_slow -> technology_slow [ style=bold ]
+    // Space exploration takes a lot of resources and industry power
+    industry_slow -> no_space [ style=solid ]
+    
+    // Without technology development cannot be space exploration
+    technology_slow -> no_space [ style=dashed ]
+    // Industries dependent on technological progress
+    technology_slow -> industry_slow [ style=dashed ]
+    // Without progress stupidity will be spreading 
+    technology_slow -> human_stupid  [ style=dashed ]
+
+    // Oil will last till 2050 
+    // Oil is a vital part of many industries
+    oil_depletion -> industry_slow [ style=solid ]
+    // Energy shortages will have negative effect on technological progress
+    oil_depletion -> technology_slow [ style=dashed ]
+    // Almost all plastic is made of oil
+    oil_depletion -> plastics_prod [ style=bold ]
+    // When oil will become more rare and expensive people turn to other energy resources like coal
+    oil_depletion -> coal_use [ style=solid ]
+
+    // Natural gas will deplete by 2050, and unknown how much in shale.
+    gas_depletion -> coal_use [ style=solid ]
+
+    // Coal use is source of CO2
+    coal_use -> co2_rise [ style=bold ]
+    // Coal use is a source of fine particles in air
+    coal_use -> air_pollution [ style=bold ]
+
+    // Pastic in an excellent material for industries without it we will have to turn to more expensive alternatives
+    plastics_prod -> industry_slow [ style=solid ]
+    // Without plasic we have to cut more trees to make packaging and goods
+    plastics_prod -> deforestation [ style=solid ]
+
+    // Salinization is one of major causes of desertification
+    salinization -> desertification [ style=solid ]
+    // Salinization make soil infertile
+    salinization -> soil_depletion [ style=solid ]
+    // Causes damage to infrustructure (roads, bricks, pipes and cables)
+    salinization -> infrac_destr [ style=dashed ]
+    // Reduction of water quality for users, sedimentation problems, increased leaching of metals, especially copper, cadmium, manganese and zinc.
+    salinization -> water_pollution [ style=dashed ]
+    // Detrimental effects on plant growth and yield
+    salinization -> food_reduce [ style=dashed ]
+    // To desalinate take more energy
+    salinization -> oil_depletion [ style=dashed ]
+    salinization -> gas_depletion [ style=dashed ]
+
+    // Space debris uncontrolled multiplication can make space inaccessable or too expensive
+    space_debris -> no_space [ style=bold ]
+    // If space become unaccessible there will be no high orbit setalites
+    space_debris -> no_gps [ style=bold ]
+
+    // GPS is a vital part of moden life, industies, transportation
+    no_gps -> industry_slow [ style=solid ]
+
+    // Without space technological and science progress will be slowed down
+    no_space -> technology_slow [ style=dashed ]
+
+    // Pandemic create social instability
+    pandemic -> social_instab [ style=solid ]
+    // Pandemic undermine healthcare, people who survive have disabilities, pandemic take all resources of healthcare
+    pandemic -> health_reduce [ style=solid ]
+    // During pandemic people tend to use antibiotics without reason, even if they won't help them
+    pandemic -> uncontrolled_antibiotics [ style=dashed ]
+    // Pandemic as public disaster can turn people to extream ideologies
+    pandemic -> extremism [ style=dashed ]
+    // During pandemic people don't educate
+    pandemic -> human_stupid [ style=dashed ]
+
+    // Resistant bacteria cause people take stronger antibiotics further increasing bacteria resistance
+    bacteria_resist -> uncontrolled_antibiotics [ style=solid ]
+    // Resistant to everything bacteria can cause pandemic
+    bacteria_resist -> pandemic [ style=bold ]
+
+    air_pollution -> health_reduce [ style=solid ]
+    air_pollution -> species_extinction [ style=solid ]
+
+    // Chemical, sadimentation water pollution
+    water_pollution -> water_reduce [ style=solid ]
+    water_pollution -> health_reduce [ style=bold ]
+    water_pollution -> food_reduce [ style=solid ]
+    water_pollution -> marine_die [ style=bold ]
+
+    plastics_pollution -> water_pollution [ style=solid ]
+    plastics_pollution -> marine_die [ style=bold ]
+    plastics_pollution -> health_reduce [ style=solid ]
+    plastics_pollution -> species_extinction [ style=dashed ]
+
+    land_pollution -> habitable_area_decrease [ style=dashed ]
+    land_pollution -> soil_depletion [ style=solid ]
+    // Land pollution is poisoning ground water supplies
+    land_pollution -> health_reduce [ style=solid ]
+    // Toxic wast on land eventually end up in rivers and ocean
+    land_pollution -> water_pollution [ style=solid ]
+
+    nuclear_waste -> rad_pollution [ style=dashed ]
+    nuclear_waste -> habitable_area_decrease [ style=dashed ]
+
+    general_waste -> land_pollution [ style=dashed ]
+    general_waste -> habitable_area_decrease [ style=dashed ]
+
+    health_reduce -> social_instab [ style=dashed ]
+    health_reduce -> human_stupid [ style=dashed ]
+    health_reduce -> pandemic [ style=solid ]
+
+    // Raising people health problems increase burden on social institutes.
+    // With the help of modern medicine survive those who would die normally and medicine help them to leave even weaker offspring
+    genetic_weakening -> health_reduce [ style=dashed ]
+
+    // Dumb people elect dumb leaders
+    human_stupid -> wrong_people [ style=bold ]
+    human_stupid -> anti_gmo [ style=solid ]
+    human_stupid -> anti_vac [ style=solid ]
+    human_stupid -> anti_gene [ style=solid ]
+    // Low education is the cause of bad farming practises
+    human_stupid -> bad_farm [ style=solid ]
+    // Stupid people are tend to accumulate wealth without measure
+    human_stupid -> social_unjust [ style=solid ]
+    // Stupid people can be easely indoctrinated and manipulated
+    human_stupid -> extremism [ style=solid ]
+    // Low education is slowing down progress
+    human_stupid -> technology_slow [ style=bold ]
+    // People with low education are tend to make more children even if they cannot support them
+    human_stupid -> overpopulation [ style=bold ]
+    // Stupid people don't know/not care about ecology and throw rabbish into the river
+    human_stupid -> water_pollution [ style=solid ]
+    // People throw plastic into the rivers and oceans
+    human_stupid -> plastics_pollution [ style=solid ]
+    // By burning stuff, releasing chemicals
+    human_stupid -> air_pollution [ style=solid ]
+    // People can use antibiotics even without reason (like viral infection)
+    human_stupid -> uncontrolled_antibiotics [ style=solid ]
+    // Stupid people belive in alternative medicine and kill animals not for food, also do sport hunting on rare animals
+    human_stupid -> animal_extermination [ style=solid ]
+    // People sometimes start wildfires by mistake or deliberetly
+    human_stupid -> wildfires [ style=solid ]
+    // Stupid people belive that accumulation of nuclear weapon is making them safe
+    human_stupid -> nuclear_weapon [ style=dashed ]
+    // Humans help to spread non-native species to other locations
+    human_stupid -> invas_species [ style=bold ]
+    // Mistakes in construction of nuclear plants can cause disaster or human mistake
+    human_stupid -> rad_pollution [ style=dashed ]
+
+    // Terrorists with enough resources can start a full scale war
+    extremism -> war [ style=dashed ]
+    // Extreme currents and terrorists are against science and progress
+    extremism -> technology_slow [ style=solid ]
+    // Terrorists attacks cause social instability
+    extremism -> social_instab [ style=solid ]
+    // Terrorists can lay hands on nuclear weapon
+    extremism -> nuclear_weapon [ style=dashed ]
+    // Terrorists can blow up whole buildings
+    extremism -> infrac_destr [ style=dashed ]
+
+    // Dictators prefer less educated people and usually the dismantle education and science
+    wrong_people -> human_stupid [ style=solid ]
+    // Dictrtors make themself and their friends wealthy taking everything they can from common people
+    wrong_people -> social_unjust [ style=bold ]
+    // Many people might not like live in dictratorship, crime is also rising
+    wrong_people -> social_instab [ style=solid ]
+    // To keep power dictrators tend to buy/develop nuclear weapon and because they have absolute power they can use it
+    wrong_people -> nuclear_weapon [ style=dashed ]
+
+    // Anti GMO movement do not allow GMO crops
+    anti_gmo -> bad_farm [ style=dashed ]
+
+    // Anti gene manipulation movement prevent gene techonlogies to be developed and used
+    anti_gene -> technology_slow [ style=dashed ]
+
+    // Anti vactination movement make public more vulnarable to infections
+    anti_vac -> health_reduce [ style=dashed ]
+    // Anti vactination movement make pandemic more probable to happen
+    anti_vac -> pandemic [ style=solid ]
+
+    // Poor people cannot aford healthcare
+    social_unjust -> health_reduce [ style=bold ]
+    // Poor people cannon participate in science and technology development
+    social_unjust -> technology_slow [ style=bold ]
+    // Poverty increases crime
+    social_unjust -> social_instab [ style=bold ]
+    // Poor people make more children in order to survive
+    social_unjust -> overpopulation [ style=solid ]
+    // Poor people cannot go study, payments for education are always rising
+    social_instab ->human_stupid [ style=bold ]
+    // Poor people want more just system and can turn to extreme idiologies or start a revolution
+    social_unjust -> extremism [ style=solid ]
+
+    // Millions of sharks get killed for their fins because in alternative medicine they valued for curing impotence. It also includes sport fishing.
+    animal_extermination -> marine_die [ style=solid ]
+    // Sport hunt on rare animals and poaching
+    animal_extermination -> species_extinction [ style=dashed ]
+
+    // Dumping antibiotics into enviroment creates resistant bacteria and superbugs
+    uncontrolled_antibiotics -> bacteria_resist [ style=bold ]
+
+    // Can cause human health
+    ozone -> health_reduce [ style=solid ]
+    // Ozone layer thinning is also dangerous for animals
+    ozone -> species_extinction [ style=solid ]
+
+    // Cleaning forests to build farms (like palm oil)
+    bad_farm -> deforestation [ style=bold ]
+    // Farmers use ground water without control and it takes thousands of years to replenish
+    bad_farm -> groundwater [ style=solid ]
+    // Using chemicals and pesticides
+    bad_farm -> land_pollution [ style=solid ]
+    // Farmers feed live stock with antibiotics without control trying to increase profit
+    bad_farm -> uncontrolled_antibiotics [ style=solid ]
+    // Farmers depleting soil layer by wrong farming techincs trying to increase profit
+    bad_farm -> soil_depletion [ style=solid ]
+
+    // TO ADD:
+    // Habitat destruction. Vast amounts of land are decimated to provide space for drilling wells, pipelines, and processing facilities used in oil and gas drilling operations.
+    // Habitat disruption and noise from drilling are some of the biggest threats to wildlife populations across the globe.
+
+    // =========================================================================
+    // @problem_groups
+    
+    // Global warming color=lightsalmon, style=filled
+    co2_rise [ label="CO2 rise", color=lightsalmon, style=filled, shape=box, fontsize=28 ]
+    temp_increase [ label="Global\ntemperature rise", color=lightsalmon, style=filled, shape=box, fontsize=33 ]
+    ice_reduce [ label="Glaciers reduce", color=lightsalmon, style=filled, shape=box, fontsize=22 ]
+    hurricanes [ label="Severe\nhurricanes", color=lightsalmon, style=filled, shape=box, fontsize=22 ]
+    ocean_acid [ label="Ocean acidity\nincrease", color=lightsalmon, style=filled, shape=box, fontsize=14 ]
+    droughts [ label="Droughts", color=lightsalmon, style=filled, shape=box, fontsize=26 ]
+    ocean_conv_stop [ label="Ocean conveyor\nslow down", color=lightsalmon, style=filled, shape=box, fontsize=13 ]
+    ocean_level [ label="Global ocean\nlevel increase", color=lightsalmon, style=filled, shape=box, fontsize=22 ]
+    wildfires [ label="Wildfires", color=lightsalmon, style=filled, shape=box, fontsize=24 ]
+    desertification [ label="Desertification", color=lightsalmon, style=filled, shape=box, fontsize=19 ]
+    wetland_spread [ label="Wetlands spreading", color=lightsalmon, style=filled, shape=box, fontsize=18 ]
+    methane_bomb [ label="Methane deposits", color=lightsalmon, style=filled, shape=box, fontsize=16 ]
+    methane_raise [ label="Methane increase\nin atmosphere", color=lightsalmon, style=filled, shape=box, fontsize=16 ]
+    water_vapor [ label="Water vapor", color=lightsalmon, style=filled, shape=box, fontsize=16 ]
+    co2_poison [ label="CO2 poisoning\n>800ppm", color=lightsalmon, style=filled, shape=box, fontsize=18 ]
+    clouds_disappear [ label="Rain clouds\ndisappear\n>1200ppm", color=lightsalmon, style=filled, shape=box, fontsize=18 ]
+    coal_use [ label="Coal use", color=lightsalmon, style=filled, shape=box, fontsize=20 ]
+    nitrous_oxide [ label="Nitrous oxide\nincrease", color=lightsalmon, style=filled, shape=box, fontsize=20 ]
+
+    // Extinction color=yellowgreen, style=filled
+    crust_die [ label="Crustaceans\ndie out", color=yellowgreen, style=filled, shape=box, fontsize=16 ]
+    marine_die [ label="Marine species\nextinction", color=yellowgreen, style=filled, shape=box, fontsize=20 ]
+    species_extinction [ label="Species\nextinction", color=yellowgreen, style=filled, shape=box, fontsize=17 ]
+    coral_die [ label="Coral reefs\ndie out", color=yellowgreen, style=filled, shape=box, fontsize=14 ]
+
+    // Resources color=aquamarine, style=filled
+    water_reduce [ label="Water supply\nreduce", color=aquamarine, style=filled, shape=box, fontsize=36 ]
+    food_reduce [ label="Food supply\nreduce", color=aquamarine, style=filled, shape=box, fontsize=22 ]
+    deforestation [ label="Deforestation", color=aquamarine, style=filled, shape=box, fontsize=23 ]
+    soil_depletion [ label="Erosion, soil\nfertility/layer decrease", color=aquamarine, style=filled, shape=box, fontsize=20 ]
+    overfishing [ label="Overfishing", color=aquamarine, style=filled, shape=box, fontsize=21 ]
+    industrial_elements [ label="Key industial\nelements depletion", color=aquamarine, style=filled, shape=box, fontsize=16 ]
+    oil_depletion [ label="Crude oil\ndepletion", color=aquamarine, style=filled, shape=box, fontsize=21 ]
+    gas_depletion [ label="Natural gas\ndepletion", color=aquamarine, style=filled, shape=box, fontsize=14 ]
+    plastics_prod [ label="Plastics production\ndecrease", color=aquamarine, style=filled, shape=box, fontsize=16 ]
+    groundwater [ label="Ground water\ndecline", color=aquamarine, style=filled, shape=box, fontsize=14 ]
+
+    // Pollution color=lightslategray, style=filled
+    air_pollution [ label="Air pollution", color=lightslategray, style=filled, shape=box, fontsize=16 ]
+    water_pollution [ label="Water pollution", color=lightslategray, style=filled, shape=box, fontsize=24 ]
+    plastics_pollution [ label="Plastics and\nmicroplasic pollution", color=lightslategray, style=filled, shape=box, fontsize=21 ]
+    nuclear_waste [ label="Nuclear waste\naccumulation", color=lightslategray, style=filled, shape=box, fontsize=14 ]
+    general_waste [ label="Waste accumulation,\nlandfills", color=lightslategray, style=filled, shape=box, fontsize=14 ]
+    rad_pollution [ label="Radioactive pollution", color=lightslategray, style=filled, shape=box, fontsize=17 ]
+    land_pollution [ label="Land pollution", color=lightslategray, style=filled, shape=box, fontsize=19 ]
+    nitrogen_cycle [ label="Nitrogen increase", color=lightslategray, style=filled, shape=box, fontsize=22 ]
+    phosphorus_peak [ label="Phosphorus increase", color=lightslategray, style=filled, shape=box, fontsize=15 ]
+
+    // Humans color=skyblue, style=filled
+    human_stupid [ label="Human stupidity,\nlow education,\nmistakes", color=skyblue, style=filled, shape=box, fontsize=54 ]
+    social_instab [ label="Social instability", color=skyblue, style=filled, shape=box, fontsize=24 ]
+    famine [ label="Famine", color=skyblue, style=filled, shape=box, fontsize=18 ]
+    war [ label="Local and global\nwars", color=skyblue, style=filled, shape=box, fontsize=43 ]
+    people_migration [ label="Humans mass\nmigration", color=skyblue, style=filled, shape=box, fontsize=16 ]
+    overpopulation [ label="Overpopulation,\npopulation growth", color=skyblue, style=filled, shape=box, fontsize=86 ]
+    pandemic [ label="Pandemic", color=skyblue, style=filled, shape=box, fontsize=19 ]
+    bacteria_resist [ label="Bacteria\ndrugs resistance", color=skyblue, style=filled, shape=box, fontsize=18 ]
+    genetic_weakening [ label="Human genetic\nweakening", color=skyblue, style=filled, shape=box, fontsize=13 ]
+    health_reduce [ label="General human\nhealth reduce", color=skyblue, style=filled, shape=box, fontsize=16 ]
+    wrong_people [ label="Wrong people\ntake decisions", color=skyblue, style=filled, shape=box, fontsize=21 ]
+    anti_gmo [ label="Anti GMO\nmovement", color=skyblue, style=filled, shape=box, fontsize=13 ]
+    anti_vac [ label="Anti vaccination\nmovement", color=skyblue, style=filled, shape=box, fontsize=15 ]
+    anti_gene [ label="Anti gene-manipulation\nmovement", color=skyblue, style=filled, shape=box, fontsize=13 ]
+    nuclear_weapon [ label="Nuclear weapon in hands\nof unstable countries\nand its usage", color=skyblue, style=filled, shape=box, fontsize=15 ]
+    social_unjust [ label="Social unjust,\npoverty,\nsocial stratification", color=skyblue, style=filled, shape=box, fontsize=28 ]
+    animal_extermination [ label="Animal extermination", color=skyblue, style=filled, shape=box, fontsize=15 ]
+    uncontrolled_antibiotics [ label="Uncontrolled use\nof antibiotics", color=skyblue, style=filled, shape=box, fontsize=16 ]
+    extremism [ label="Extremism,\nterrorism", color=skyblue, style=filled, shape=box, fontsize=19 ]
+    bad_farm [ label="Bad farming\npractices", color=skyblue, style=filled, shape=box, fontsize=24 ]
+
+    // Other color=khaki, style=filled
+    infrac_destr [ label="Infrastructure\ndestruction", color=khaki, style=filled, shape=box, fontsize=21 ]
+    habitable_area_decrease [ label="Habitable area decrease", color=khaki, style=filled, shape=box, fontsize=14 ]
+    parasites [ label="Parasites\ninvasion", color=khaki, style=filled, shape=box, fontsize=17 ]
+    invas_species [ label="Invasive species", color=khaki, style=filled, shape=box, fontsize=18 ]
+    industry_slow [ label="Industrial slowdown,\ninfractructure build", color=khaki, style=filled, shape=box, fontsize=20 ]
+    technology_slow [ label="Progress slowdown", color=khaki, style=filled, shape=box, fontsize=15 ]
+    salinization [ label="Salinization", color=khaki, style=filled, shape=box, fontsize=21 ]
+    space_debris [ label="Space debris", color=khaki, style=filled, shape=box, fontsize=20 ]
+    no_gps [ label="No GPS,\nhigh orbit satellites", color=khaki, style=filled, shape=box, fontsize=14 ]
+    no_space [ label="No space exploration", color=khaki, style=filled, shape=box, fontsize=13 ]
+    ozone [ label="Ozone layer\nreduce", color=khaki, style=filled, shape=box, fontsize=16 ]
+}
