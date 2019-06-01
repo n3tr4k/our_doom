@@ -61,7 +61,7 @@ digraph Global {
     // More people is a burden for education and general population increase happens in poor countries
     overpopulation -> human_stupid [ style=dashed ]
     // More people need more transportation, energy, goods and concrete
-    overpopulation -> co2_rise [ style=bold ]
+    overpopulation -> co2_increase [ style=bold ]
     // Farming is causing increase of methane in atmosphere
     overpopulation -> methane_raise [ style=bold ]
     // Since industrial revolution we increased global reactive nitrogen (Nr) by 50%
@@ -75,13 +75,13 @@ digraph Global {
     overpopulation -> general_waste [ style=bold ]
 
     // CO2 -> temperature increase via global warming effect of CO2 will be rising as now we will have +4 degrees by the end of 21st century
-    co2_rise -> temp_increase [ style=bold ]
+    co2_increase -> temp_increase [ style=bold ]
     // More than 800 ppm lead to poisoning for humans
-    co2_rise -> co2_poison [ style=bold ]
+    co2_increase -> co2_poison [ style=bold ]
     // CO2 in atmosphere leads to water acidity increase because it reacts with water and converts into carbonic acid
-    co2_rise -> ocean_acid [ style=bold ]
+    co2_increase -> ocean_acid [ style=bold ]
     // More than 1200 ppm leads to rain clouds disappearing which will heat the planet on +12C. Human extinction scenario.
-    co2_rise -> clouds_disappear [ style=bold ]
+    co2_increase -> clouds_disappear [ style=bold ]
 
     // Temperature increase can trigger methane deposits unleash, from permafrost on land or from the bottom of the ocean Global temperature can increase to +4 degrees only from methane
     methane_bomb -> temp_increase [ style=bold ]
@@ -173,7 +173,7 @@ digraph Global {
     // By destroying infrastructure wildfires causing air pollution
     wildfires -> air_pollution [ style=dashed ]
     // Burning trees are direct increase of CO2
-    wildfires -> co2_rise [ style=dashed ]
+    wildfires -> co2_increase [ style=dashed ]
     // Wildfires are killing animals and destroying their habitats
     wildfires -> species_extinction [ style=dashed ]
 
@@ -238,7 +238,7 @@ digraph Global {
     // Destruction of factories and communications
     infrac_destr -> industry_slow [ style=dashed ]
     // Fires from destruction emits CO2
-    infrac_destr -> co2_rise [ style=dashed ]
+    infrac_destr -> co2_increase [ style=dashed ]
     // Fires from destruction emits air pollution
     infrac_destr -> air_pollution [ style=dashed ]
 
@@ -247,7 +247,7 @@ digraph Global {
     // Trees are natural air filters
     deforestation -> air_pollution [ style=solid ]
     // Less trees means less CO2 can be absorbed from the air
-    deforestation -> co2_rise [ style=solid ]
+    deforestation -> co2_increase [ style=solid ]
     // Forests are habitats for many species
     deforestation -> species_extinction [ style=solid ]
     // Trees are cooling the planet by absorbing sun's energy
@@ -426,7 +426,7 @@ digraph Global {
     gas_depletion -> coal_use [ style=solid ]
 
     // Coal use is source of CO2
-    coal_use -> co2_rise [ style=bold ]
+    coal_use -> co2_increase [ style=bold ]
     // Coal use is a source of fine particles in air
     coal_use -> air_pollution [ style=bold ]
 
@@ -636,8 +636,8 @@ digraph Global {
     // @problem_groups
     
     // Global warming color=lightsalmon, style=filled
-    co2_rise [ label="CO2 rise", color=lightsalmon, style=filled, shape=box, fontsize=28 ]
-    temp_increase [ label="Global\ntemperature rise", color=lightsalmon, style=filled, shape=box, fontsize=33 ]
+    co2_increase [ label="CO2 increase", color=lightsalmon, style=filled, shape=box, fontsize=28 ]
+    temp_increase [ label="Global\ntemperature growth", color=lightsalmon, style=filled, shape=box, fontsize=33 ]
     ice_reduce [ label="Glaciers reduce", color=lightsalmon, style=filled, shape=box, fontsize=22 ]
     hurricanes [ label="Severe\nhurricanes", color=lightsalmon, style=filled, shape=box, fontsize=22 ]
     ocean_acid [ label="Ocean acidity\nincrease", color=lightsalmon, style=filled, shape=box, fontsize=14 ]

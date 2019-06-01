@@ -17,7 +17,7 @@ Scripts work under Linux but with some effort can be run in Windows and cygwin t
 
 ### Generating global chart
 ```bash
-/bin/bash compile.sh
+/bin/bash compile.sh global.dot
 ```
 
 ### Generating pie chart
