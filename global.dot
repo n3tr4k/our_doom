@@ -109,6 +109,8 @@ digraph Global {
     temp_increase -> coral_die [ style=solid ]
     // Temperature rise is increasing water evaporation
     temp_increase -> water_vapor [ style=solid ]
+    // Increasing heatwaves, spreading mosquito-born diseases
+    temp_increase -> health_reduce [ style=dashed ]
 
     // Less ice means more sun energy will be absorbed by dark water of ground.
     ice_reduce -> temp_increase [ style=solid ]
@@ -530,16 +532,17 @@ digraph Global {
     // Stupid people elect stupid leaders
     human_stupid -> wrong_people [ style=bold ]
     // Stupid people don't understand science and it frightens them, so they want to forbid gene crop manipulation, vaccines, and different gene therapies and modifications of humans
-    human_stupid -> anti_gmo [ style=solid ]
-    human_stupid -> anti_vac [ style=solid ]
-    human_stupid -> anti_gene [ style=solid ]
+    human_stupid -> bad_farm [ style=dashed ]
+    // Anti-vac movement increases chance of people not get vaccine
+    human_stupid -> pandemic [ style=solid ]
+    human_stupid -> health_reduce [ style=dashed ]
     // Low education is the cause of bad farming practises
     human_stupid -> bad_farm [ style=solid ]
     // Stupid people are tend to accumulate wealth without measure
     human_stupid -> social_unjust [ style=solid ]
     // Stupid people could be easily indoctrinated and manipulated
     human_stupid -> extremism [ style=solid ]
-    // Low education is slowing down progress
+    // Low education is slowing down progress, gene manipulation is forbidden or restricted
     human_stupid -> technology_slow [ style=bold ]
     // People with low education are tend to make more children even if they cannot support them
     human_stupid -> overpopulation [ style=bold ]
@@ -579,17 +582,6 @@ digraph Global {
     wrong_people -> social_instab [ style=solid ]
     // To keep power dictators tend to buy/develop nuclear weapon and because they have absolute power they can use it
     wrong_people -> nuclear_weapon [ style=dashed ]
-
-    // Anti GMO movement do not allow GMO crops to be used
-    anti_gmo -> bad_farm [ style=dashed ]
-
-    // Anti gene manipulation movement prevent gene technologies to be developed and used on people
-    anti_gene -> technology_slow [ style=dashed ]
-
-    // Anti vaccination movement make public more vulnerable to infections
-    anti_vac -> health_reduce [ style=dashed ]
-    // Anti vaccination movement make pandemic more probable to happen
-    anti_vac -> pandemic [ style=solid ]
 
     // Poor people cannot afford healthcare
     social_unjust -> health_reduce [ style=bold ]
@@ -637,7 +629,7 @@ digraph Global {
     
     // Global warming color=lightsalmon, style=filled
     co2_increase [ label="CO2 increase", color=lightsalmon, style=filled, shape=box, fontsize=28 ]
-    temp_increase [ label="Global\ntemperature growth", color=lightsalmon, style=filled, shape=box, fontsize=33 ]
+    temp_increase [ label="Global\ntemperature growth", color=lightsalmon, style=filled, shape=box, fontsize=34 ]
     ice_reduce [ label="Glaciers reduce", color=lightsalmon, style=filled, shape=box, fontsize=22 ]
     hurricanes [ label="Severe\nhurricanes", color=lightsalmon, style=filled, shape=box, fontsize=22 ]
     ocean_acid [ label="Ocean acidity\nincrease", color=lightsalmon, style=filled, shape=box, fontsize=14 ]
@@ -685,7 +677,7 @@ digraph Global {
     phosphorus_peak [ label="Phosphorus increase", color=lightslategray, style=filled, shape=box, fontsize=15 ]
 
     // Humans color=skyblue, style=filled
-    human_stupid [ label="Human stupidity,\nlow education,\nmistakes", color=skyblue, style=filled, shape=box, fontsize=52 ]
+    human_stupid [ label="Human stupidity,\nlow education,\nmistakes", color=skyblue, style=filled, shape=box, fontsize=50 ]
     social_instab [ label="Social instability", color=skyblue, style=filled, shape=box, fontsize=24 ]
     famine [ label="Famine", color=skyblue, style=filled, shape=box, fontsize=18 ]
     war [ label="Local and global\nwars", color=skyblue, style=filled, shape=box, fontsize=43 ]
@@ -696,9 +688,6 @@ digraph Global {
     genetic_weakening [ label="Human genetic\nweakening", color=skyblue, style=filled, shape=box, fontsize=13 ]
     health_reduce [ label="General human\nhealth reduce", color=skyblue, style=filled, shape=box, fontsize=16 ]
     wrong_people [ label="Wrong people\ntake decisions", color=skyblue, style=filled, shape=box, fontsize=21 ]
-    anti_gmo [ label="Anti GMO\nmovement", color=skyblue, style=filled, shape=box, fontsize=13 ]
-    anti_vac [ label="Anti vaccination\nmovement", color=skyblue, style=filled, shape=box, fontsize=15 ]
-    anti_gene [ label="Anti gene-manipulation\nmovement", color=skyblue, style=filled, shape=box, fontsize=13 ]
     nuclear_weapon [ label="Nuclear weapon in hands\nof unstable countries\nand its usage", color=skyblue, style=filled, shape=box, fontsize=15 ]
     social_unjust [ label="Social unjust,\npoverty,\nsocial stratification", color=skyblue, style=filled, shape=box, fontsize=28 ]
     animal_extermination [ label="Animal extermination", color=skyblue, style=filled, shape=box, fontsize=15 ]
